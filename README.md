@@ -33,11 +33,11 @@
 
 #### 后端技术
 
-| 技术                         | 说明                                 | 官网                                                 |
-| ---------------------- | ---------------------- -| ---------------------------------------------------- |
+| 技术                         | 说明                       | 官网                                                 |
+| ---------------------- | ------------------| ----------------------------- |
 | MySQL                     |数据库
-| SpringBoot             | 容器+MVC框架         | https://spring.io/projects/spring-boot               
-| MyBatis                  | ORM框架                  | http://www.mybatis.org/mybatis-3/zh/index.html       
+| SpringBoot             | 容器+MVC框架       | https://spring.io/projects/spring-boot               
+| MyBatis                  | ORM框架         | http://www.mybatis.org/mybatis-3/zh/index.html       
 | MyBatisGenerator  | 数据层代码生成      | http://www.mybatis.org/generator/index.html          
 | PageHelper            | MyBatis物理分页插件 | http://git.oschina.net/free/Mybatis_PageHelper       
 
