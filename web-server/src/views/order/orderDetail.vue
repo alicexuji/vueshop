@@ -55,62 +55,13 @@
           <el-col :span="12" class="table-cell">{{order.formatAddress}}</el-col>
         </el-row>
       </div>
-<!--      <div style="margin-top: 20px">-->
-<!--        <svg-icon icon-class="marker" style="color: #606266"></svg-icon>-->
-<!--        <span class="font-small">商品信息</span>-->
-<!--      </div>-->
-<!--      <el-table-->
-<!--        ref="orderItemTable"-->
-<!--        :data="order.orderItemList"-->
-<!--        style="width: 100%;margin-top: 20px" border>-->
-<!--        <el-table-column label="商品图片" width="160" align="center">-->
-<!--          <template slot-scope="scope">-->
-<!--            <img :src="scope.row.productPic" style="height: 80px">-->
-<!--          </template>-->
-<!--        </el-table-column>-->
-<!--        <el-table-column label="商品名称" align="center">-->
-<!--          <template slot-scope="scope">-->
-<!--            <p>{{scope.row.productName}}</p>-->
-<!--            <p>品牌：{{scope.row.productBrand}}</p>-->
-<!--          </template>-->
-<!--        </el-table-column>-->
-<!--        <el-table-column label="价格" width="120" align="center">-->
-<!--          <template slot-scope="scope">-->
-<!--            <p>价格：￥{{scope.row.productPrice}}</p>-->
-<!--          </template>-->
-<!--        </el-table-column>-->
-<!--        <el-table-column label="数量" width="120" align="center">-->
-<!--          <template slot-scope="scope">-->
-<!--            {{scope.row.productQuantity}}-->
-<!--          </template>-->
-<!--        </el-table-column>-->
-<!--        <el-table-column label="小计" width="120" align="center">-->
-<!--          <template slot-scope="scope">-->
-<!--            ￥{{scope.row.productPrice*scope.row.productQuantity}}-->
-<!--          </template>-->
-<!--        </el-table-column>-->
-<!--      </el-table>-->
-<!--      <div style="float: right;margin: 20px">-->
-<!--        合计：<span class="color-danger">￥{{order.totalAmount}}</span>-->
-<!--      </div>-->
     </el-card>
   </div>
 </template>
 <script>
   import {getOrderDetail} from '@/api/order';
   import {formatDate} from '@/utils/date';
-  // import VDistpicker from 'v-distpicker';
-  // const defaultReceiverInfo = {
-  //   orderId:null,
-  //   receiverName:null,
-  //   receiverPhone:null,
-  //   receiverPostCode:null,
-  //   receiverDetailAddress:null,
-  //   receiverProvince:null,
-  //   receiverCity:null,
-  //   receiverRegion:null,
-  //   status:null
-  // };
+
   export default {
     name: 'orderDetail',
     data() {
@@ -160,11 +111,6 @@
       }
     },
     methods: {
-      //     onSelectRegion(data){
-      //       this.receiverInfo.receiverProvince=data.province.value;
-      //       this.receiverInfo.receiverCity=data.city.value;
-      //       this.receiverInfo.receiverRegion=data.area.value;
-      //     },
       formatTime(time) {
         if (time == null || time === '') {
           return '';
@@ -202,11 +148,6 @@
     height: 80px;
     margin: -20px -20px 0;
     line-height: 80px;
-  }
-
-  .operate-button-container {
-    float: right;
-    margin-right: 20px
   }
 
   .table-layout {

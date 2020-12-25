@@ -21,7 +21,7 @@
         </el-col>
         <!--轮播图-->
         <el-col :span="14" style="width: 78%;height: 100%;">
-          <el-carousel v-if="homecasual.length > 0" style="width: 100%;height: 100%;padding-top: 20px">
+          <el-carousel class="el-carousel" v-if="homecasual.length > 0" style="width: 100%;height: 100%;padding-top: 20px">
             <el-carousel-item v-for="url in homecasual" :key="url" style="width: 100%;height: 100%;">
               <img :src="url" alt="">
             </el-carousel-item>
@@ -88,15 +88,7 @@ export default {
       });
     },
     goShopCar() {
-      // if(getCookie("username")){
       this.$router.replace('/shopcar');
-      // }else{
-      //   MessageBox({
-      //     type: 'info',
-      //     message: "请先登录!",
-      //     showClose: true,
-      //   });
-      // }
     },
   }
 };
@@ -138,18 +130,6 @@ export default {
 .el-carousel .el-carousel__item img {
   height: 100%;
   width: 100%;
-}
-
-/*一级菜单*/
-
-/*展示登录信息区域*/
-#container .el-row .con_log.el-col {
-  background: white;
-  text-align: center;
-  font-size: 15px;
-  color: #989898;
-  border: 1px solid #ccc;
-  height: 320px;
 }
 
 .con_log > div {
@@ -203,39 +183,12 @@ export default {
   border: none;
 }
 
-.con_log > button.welfare {
-  color: #e43f3b;
-  background: white;
-}
-
-.con_log > button.vip {
-  color: #e5d790;
-  background: #2d2d2a;
-}
 
 .con_log > button:hover {
   color: white;
   background: #e43f3b;
 }
 
-/*每类产品的简单展示*/
-#container > .product {
-  margin-top: 50px;
-  width: 100%;
-  height: 300px;
-}
-
-.product > .pro_line {
-  width: 100%;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 26px;
-  font-family: sans-serif;
-  font-weight: normal;
-  color: #222;
-  margin-bottom: 20px;
-}
 
 .pro_line > h3 {
   display: inline-block;
@@ -265,11 +218,9 @@ export default {
   opacity: 1;
 }
 
-.product > .pro_show {
-  /*margin: 0 auto;*/
-  padding-left: 20px;
-  /*width: 980px;*/
-  height: 200px;
+.pro_show {
+  margin: 0 auto;
+  padding-left: 80px;
 }
 
 </style>

@@ -40,8 +40,6 @@ import {
   isvalidUsername
 } from '@/utils/validate';
 import {
-  setSupport,
-  getSupport,
   setCookie,
   getCookie
 } from '@/utils/support';

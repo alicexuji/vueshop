@@ -8,7 +8,7 @@
     </div>
     <div>
       <a @click="addToCart(pro)" class="shopping_bag"><i class="el-icon-shopping-cart-2"></i></a>
-      <a @click="goDetail(pro)" class="add_btn">
+      <a @click="goDetail(pro.id)" class="add_btn">
         <el-button type="danger">查看详情</el-button>
       </a>
     </div>

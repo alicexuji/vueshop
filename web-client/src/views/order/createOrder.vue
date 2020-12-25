@@ -49,7 +49,8 @@ export default {
         "totalAmount": this.$route.query.totalPrice,
         "orderSn": new Date().getTime() + "",
         "memberUsername": getCookie("username"),
-        "receiverKeyword": this.revievename
+        "receiverKeyword": this.revievename,
+        "payType":1
       }
       console.log("提交订单=" + param)
       createOrder(param).then(response => {

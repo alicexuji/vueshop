@@ -8,34 +8,18 @@
             <div>
               <div style="color: #909399;font-size: 14px">本月订单总数</div>
               <div style="color: #606266;font-size: 24px;padding: 10px 0">8677</div>
-              <div>
-                <span class="color-success" style="font-size: 14px">+15%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上月</span>
-              </div>
             </div>
             <div style="margin-top: 20px;">
               <div style="color: #909399;font-size: 14px">本周订单总数</div>
               <div style="color: #606266;font-size: 24px;padding: 10px 0">1320</div>
-              <div>
-                <span class="color-danger" style="font-size: 14px">-10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上周</span>
-              </div>
             </div>
             <div style="margin-top: 20px;">
               <div style="color: #909399;font-size: 14px">本月销售总额</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">136020</div>
-              <div>
-                <span class="color-success" style="font-size: 14px">+9.8%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上月</span>
-              </div>
+              <div style="color: #606266;font-size: 24px;padding: 10px 0">13602</div>
             </div>
             <div style="margin-top: 20px;">
               <div style="color: #909399;font-size: 14px">本周销售总额</div>
               <div style="color: #606266;font-size: 24px;padding: 10px 0">6593</div>
-              <div>
-                <span class="color-danger" style="font-size: 14px">-11.1%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上周</span>
-              </div>
             </div>
           </div>
         </el-col>
@@ -186,8 +170,8 @@ import img_home_yesterday_amount from '@/assets/images/home_yesterday_amount.png
 const DATA_FROM_BACKEND = {
   columns: ['date', 'orderCount','orderAmount'],
   rows: [
-    {date: '2020-11-01', orderCount: 66, orderAmount: 7093},
-    {date: '2020-11-02', orderCount: 20, orderAmount: 2230},
+    {date: '2020-11-01', orderCount: 200, orderAmount: 10093},
+    {date: '2020-11-02', orderCount: 150, orderAmount: 9230},
     {date: '2020-11-03', orderCount: 11, orderAmount: 1623},
     {date: '2020-11-04', orderCount: 52, orderAmount: 6423},
     {date: '2020-11-05', orderCount: 33, orderAmount: 3492},
