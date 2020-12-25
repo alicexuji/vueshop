@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: myspringboot
+  output:
+    ansi:
+      enabled: always
+  profiles:
+    active: dev
+  thymeleaf:
+    encoding: UTF-8
+    prefix: classpath:/templates/
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-connections: 500
+    min-spare-threads: 25
+    max-threads: 300
+    accept-count: 200
+  port: 8081
+mybatis:
+  type-aliases-package: com.zb.mapper
+  mapper-locations: classpath:mapping/*.xml
+  configuration:
+    cache-enabled: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+logging:
+  level:
+    com.zb.mapper: debug
+
+---
+
+#开发配置
+spring:
+  profiles: dev
+#  data:
+#    solr:
+#      host: http://172.16.2.85:8983/solr/zhangbin_shard1_replica1
+  datasource:
+#    url: jdbc:mysql://localhost:3306/zb_db?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
+#    username: root
+#    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/vueshop?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: ayumi0594
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+minio:
+  endpoint: http://192.168.3.101:9090 #MinIO服务所在地址
+  bucketName: mall #存储桶名称
+  accessKey: minioadmin #访问的key
+  secretKey: minioadmin #访问的秘钥
