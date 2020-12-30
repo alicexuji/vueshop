@@ -1,7 +1,7 @@
 import request from '@/utils/request'
-export function fetchList(parentId,params) {
+export function fetchList(params) {
   return request({
-    url:'/productCategory/list/'+parentId,
+    url:'/productCategory/list',
     method:'get',
     params:params
   })

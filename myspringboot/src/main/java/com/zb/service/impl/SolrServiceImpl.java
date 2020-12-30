@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-/**
- * Created by zhangbin on 2018/8/17.
- */
 @Service
 public class SolrServiceImpl implements SolrService {
     @Autowired

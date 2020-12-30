@@ -8,9 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * Created by zhangbin on 2018/8/6.
- */
+
 @Component
 public class UserDaoImpl implements UserDao {
     @Autowired

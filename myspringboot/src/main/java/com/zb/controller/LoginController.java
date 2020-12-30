@@ -1,38 +1,25 @@
 package com.zb.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.zb.model.Result;
 import com.zb.model.TokenResult;
 import com.zb.model.User;
 import com.zb.service.UserService;
 import com.zb.token.TokenUtils;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
-import org.apache.shiro.authz.UnauthorizedException;
-import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.util.SavedRequest;
-import org.apache.shiro.web.util.WebUtils;
+import groovy.util.logging.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
-/**
- * Created by zhangbin on 2018/8/9.
- */
-@Controller
+@RestController
+@RequestMapping("/api")
+@Slf4j
 public class LoginController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/api/admin/login")
+    @PostMapping("/admin/login")
     @ResponseBody
     public Result login(@RequestBody User user){
 
@@ -53,7 +40,7 @@ public class LoginController {
 
     }
 
-    @PostMapping("/api/admin/register")
+    @PostMapping("/admin/register")
     @ResponseBody
     public Result register(@RequestBody User user){
 
@@ -138,7 +125,7 @@ public class LoginController {
 //        return result;
 //    }
 
-    @RequestMapping("/api/admin/logout")
+    @RequestMapping("/admin/logout")
     @ResponseBody
     public Result logout(){
 

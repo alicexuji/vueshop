@@ -1,31 +1,26 @@
 package com.zb.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.zb.model.Result;
-import com.zb.model.TokenResult;
 import com.zb.model.UmsRole;
 import com.zb.model.User;
 import com.zb.service.UserService;
 import com.zb.token.TokenUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+import groovy.util.logging.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Created by zhangbin on 2018/8/6.
- */
-@Controller
+@RestController
+@RequestMapping("/api")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -38,7 +33,7 @@ public class UserController {
 //        return user;
 //    }
 
-    @RequestMapping("/api/admin/info")
+    @RequestMapping("/admin/info")
     @ResponseBody
     public Result getAdminInfo(HttpServletRequest request){
         String token = request.getAttribute("token").toString();

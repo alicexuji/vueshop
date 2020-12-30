@@ -11,9 +11,6 @@ import com.github.pagehelper.PageInfo;
 import com.zb.model.Result;
 import com.zb.service.BookService;
 
-/**
- * Created by zhangbin on 2018/8/9.
- */
 @Controller
 public class BookController {
 

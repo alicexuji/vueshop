@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getCatergoryList() {
-      fetchList(0, this.listQuery).then(response => {
+      fetchList(this.listQuery).then(response => {
         this.categoryList = response.data.list;
       });
     },

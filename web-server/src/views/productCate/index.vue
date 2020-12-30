@@ -71,8 +71,7 @@
         listQuery: {
           pageNum: 1,
           pageSize: 5
-        },
-        parentId: 0
+        }
       }
     },
     created() {
@@ -88,18 +87,13 @@
     methods: {
       resetParentId(){
         this.listQuery.pageNum = 1;
-        if (this.$route.query.parentId != null) {
-          this.parentId = this.$route.query.parentId;
-        } else {
-          this.parentId = 0;
-        }
       },
       handleAddProductCate() {
         this.$router.push('/addProductCate');
       },
       getList() {
         this.listLoading = true;
-        fetchList(this.parentId, this.listQuery).then(response => {
+        fetchList(this.listQuery).then(response => {
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;

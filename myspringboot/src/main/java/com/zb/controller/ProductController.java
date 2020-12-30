@@ -5,23 +5,24 @@ import com.zb.query.BrandQuery;
 import com.zb.query.CategoryQuery;
 import com.zb.query.ProductQuery;
 import com.zb.service.ProductService;
+import groovy.util.logging.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@Controller
+@RestController
+@RequestMapping("/api")
+@Slf4j
 public class ProductController {
 
     @Autowired
     private ProductService productService;
 
-
-    @GetMapping("/api/productCategory/list/{parentId}")
+    @GetMapping("/productCategory/list")
     @ResponseBody
-    public Result categoryList(@PathVariable("parentId") Integer parentId,
+    public Result categoryList(
         @RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "pageSize") Integer pageSize) {
 
         CategoryQuery cq = new CategoryQuery();
@@ -34,7 +35,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/api/productCategory/{id}")
+    @GetMapping("/productCategory/{id}")
     @ResponseBody
     public Result categoryDetail(@PathVariable("id") Integer id) {
 
@@ -47,7 +48,7 @@ public class ProductController {
         return result;
     }
 
-    @RequestMapping(value = "/api/productCategory/create", method = RequestMethod.POST)
+    @PostMapping(value = "/productCategory/create")
     @ResponseBody
     public Result addCategory(@RequestBody CategoryDO categoryDO) {
 
@@ -57,7 +58,7 @@ public class ProductController {
         return result;
     }
 
-    @PostMapping("/api/productCategory/update/{id}")
+    @PostMapping("/productCategory/update/{id}")
     @ResponseBody
     public Result updateCategory(@RequestBody CategoryDO categoryDO) {
 
@@ -67,7 +68,7 @@ public class ProductController {
         return result;
     }
 
-    @PostMapping("/api/productCategory/delete/{id}")
+    @PostMapping("/productCategory/delete/{id}")
     @ResponseBody
     public Result deleteCategory(@PathVariable("id") Integer id) {
 
@@ -77,7 +78,7 @@ public class ProductController {
         return result;
     }
 
-    @GetMapping("/api/product/list")
+    @GetMapping("/product/list")
     @ResponseBody
     public Result productList(@RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "pageSize") Integer pageSize) {
 
@@ -92,7 +93,7 @@ public class ProductController {
         return result;
     }
 
-    @PostMapping("/api/product/list")
+    @PostMapping("/product/list")
     @ResponseBody
     public Result productListByCategory(@RequestBody CategoryQuery query ) {
 //        CategoryQuery cq = new CategoryQuery();
@@ -108,7 +109,7 @@ public class ProductController {
 
     }
 
-    @GetMapping("/api/brand/list")
+    @GetMapping("/brand/list")
     @ResponseBody
     public Result brandList(@RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "pageSize") Integer pageSize) {
 
@@ -124,7 +125,7 @@ public class ProductController {
         return result;
     }
 
-    @GetMapping("/api/product/updateInfo/{id}")
+    @GetMapping("/product/updateInfo/{id}")
     @ResponseBody
     public Result updateProduct(@PathVariable("id") Integer id) {
 
@@ -136,7 +137,7 @@ public class ProductController {
         return result;
     }
 
-    @PostMapping("/api/product/create")
+    @PostMapping("/product/create")
     @ResponseBody
     public Result createProduct(@RequestBody ProductDO productDO) {
 
@@ -146,7 +147,7 @@ public class ProductController {
         return result;
     }
 
-    @PostMapping("/api/product/update/{id}")
+    @PostMapping("/product/update/{id}")
     @ResponseBody
     public Result updateProduc(@RequestBody ProductDO productDO) {
 
@@ -156,7 +157,7 @@ public class ProductController {
         return result;
     }
 
-    @PostMapping("/api/product/delete/{id}")
+    @PostMapping("/product/delete/{id}")
     @ResponseBody
     public Result deleteProduct(@PathVariable("id") Integer id) {
 
@@ -166,7 +167,7 @@ public class ProductController {
         return result;
     }
 
-    @PostMapping("/api/product/update/publishStatus")
+    @PostMapping("/product/update/publishStatus")
     @ResponseBody
     public Result updateProductPublishStatus(@RequestParam(value = "id") Integer id, @RequestParam(value = "publishStatus") Integer publishStatus) {
 

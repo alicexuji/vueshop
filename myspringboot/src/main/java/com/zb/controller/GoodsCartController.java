@@ -5,20 +5,22 @@ import com.zb.model.PageData;
 import com.zb.model.Result;
 import com.zb.query.GoodsCarQuery;
 import com.zb.service.GoodsCartService;
+import groovy.util.logging.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@Controller
+@RestController
+@RequestMapping("/api")
+@Slf4j
 public class GoodsCartController {
 
     @Autowired
     private GoodsCartService goodsCartService;
 
-    @GetMapping("/api/cartGoods/list")
+    @GetMapping("/cartGoods/list")
     @ResponseBody
     public Result queryGoodsCartList(@RequestParam(value = "username") String username,@RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "pageSize") Integer pageSize) {
 
@@ -33,7 +35,7 @@ public class GoodsCartController {
         return result;
     }
 
-    @PostMapping("/api/cartGoods/add")
+    @PostMapping("/cartGoods/add")
     @ResponseBody
     public Result addGoodsToCart(@RequestBody GoodsCartDO goodsCartDO) {
 
@@ -43,7 +45,7 @@ public class GoodsCartController {
         return result;
     }
 
-    @PostMapping("/api/cartGoods/update/{id}")
+    @PostMapping("/cartGoods/update/{id}")
     @ResponseBody
     public Result updateGoodsCart(@RequestBody GoodsCartDO goodsCartDO) {
 
@@ -55,7 +57,7 @@ public class GoodsCartController {
 
 
 
-    @PostMapping("/api/cartGoods/delete/{id}")
+    @PostMapping("/cartGoods/delete/{id}")
     @ResponseBody
     public Result deleteGoods(@PathVariable("id") Integer id) {
 

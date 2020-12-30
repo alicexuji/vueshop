@@ -18,10 +18,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Author: zhenwei.xu
- * @Date: 2020/12/7 20:34
- */
 @Service
 public class ProductServiceImpl implements ProductService {
 

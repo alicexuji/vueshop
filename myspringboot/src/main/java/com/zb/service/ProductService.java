@@ -9,10 +9,6 @@ import com.zb.query.ProductQuery;
 
 import java.util.List;
 
-/**
- * @Author: zhenwei.xu
- * @Date: 2020/12/7 20:33
- */
 public interface ProductService {
     List<CategoryDO> queryCategoryList(CategoryQuery cq);
 

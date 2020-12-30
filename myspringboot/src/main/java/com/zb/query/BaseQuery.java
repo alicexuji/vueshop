@@ -4,10 +4,6 @@ import java.io.Serializable;
 
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * @Author: zhenwei.xu
- * @Date: 2019/4/30 15:32
- */
 public class BaseQuery implements Serializable {
     private static final long serialVersionUID = 8994082128504200117L;
 

@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * Created by zhangbin on 2018/8/6.
- */
 public interface UserService {
     User selectByPrimaryKey(Integer id);
 

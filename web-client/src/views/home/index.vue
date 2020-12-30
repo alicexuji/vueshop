@@ -60,8 +60,7 @@ export default {
       listQuery: {
         pageNum: 1,
         pageSize: 50
-      },
-      parentId: 0
+      }
     }
   },
   components: {
@@ -74,7 +73,7 @@ export default {
   },
   methods: {
     getCatergoryList() {
-      fetchList(this.parentId, this.listQuery).then(response => {
+      fetchList(this.listQuery).then(response => {
         this.categoryList = response.data.list;
       });
     },

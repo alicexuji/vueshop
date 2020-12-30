@@ -5,6 +5,7 @@ import com.zb.model.PageData;
 import com.zb.model.Result;
 import com.zb.query.OrderQuery;
 import com.zb.service.OrderService;
+import groovy.util.logging.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,17 +13,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Author: zhenwei.xu
- * @Date: 2020/12/7 20:12
- */
-@Controller
+
+@RestController
+@RequestMapping("/api")
+@Slf4j
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/api/order/{id}")
+    @GetMapping("/order/{id}")
     @ResponseBody
     public Result orderDetail(@PathVariable("id") Integer id) {
 
@@ -34,7 +34,7 @@ public class OrderController {
         return result;
     }
 
-    @GetMapping("/api/order/list")
+    @GetMapping("/order/list")
     @ResponseBody
     public Result orderList(@RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "pageSize") Integer pageSize) {
         OrderQuery cq = new OrderQuery();
@@ -47,7 +47,7 @@ public class OrderController {
         return result;
     }
 
-    @PostMapping("/api/order/create")
+    @PostMapping("/order/create")
     @ResponseBody
     public Result createOrder(@RequestBody OrderDO orderDO) {
 
@@ -57,7 +57,7 @@ public class OrderController {
         return result;
     }
 
-    @PostMapping("/api/order/update/{id}")
+    @PostMapping("/order/update/{id}")
     @ResponseBody
     public Result updateOrder(@RequestBody OrderDO orderDO) {
 
@@ -67,7 +67,7 @@ public class OrderController {
         return result;
     }
 
-    @PostMapping("/api/order/delete/{id}")
+    @PostMapping("/order/delete/{id}")
     @ResponseBody
     public Result deleteOrder(@PathVariable("id") Integer id) {
 
@@ -78,7 +78,7 @@ public class OrderController {
     }
 
 
-    @PostMapping(value = "/api/update/delivery")
+    @PostMapping(value = "/update/delivery")
     @ResponseBody
     public Result delivery(@RequestBody OrderDO orderDO) {
 

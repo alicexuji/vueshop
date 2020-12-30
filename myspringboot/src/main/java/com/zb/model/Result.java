@@ -1,11 +1,10 @@
 package com.zb.model;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.io.Serializable;
 
-
-/**
- * @author zhenwei.xu
- */
+@Getter
+@Setter
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 5757438163355725464L;
 
@@ -15,29 +14,6 @@ public class Result<T> implements Serializable {
 
     private T data;
 
-    public Integer getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 
     //    private boolean success = true;
 

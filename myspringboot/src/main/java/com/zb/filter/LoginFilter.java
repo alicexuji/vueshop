@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @Author: zhenwei.xu
- * @Date: 2020/12/7 18:02
- */
 @WebFilter(filterName = "loginFilter", urlPatterns = {"/*"})
 public class LoginFilter implements Filter {
 
