@@ -116,10 +116,19 @@ import SingleUpload from '@/components/Upload/singleUpload'
       //商品的主图和画册图片
       selectProductPics:{
         get:function () {
-          let picUrl='';
+          let pics=[];
           if(this.value.picUrl===undefined||this.value.picUrl==null||this.value.picUrl===''){
-            return picUrl;
+            return pics;
           }
+          pics.push(this.value.pic);
+          if(this.value.albumPics===undefined||this.value.albumPics==null||this.value.albumPics===''){
+            return pics;
+          }
+          let albumPics = this.value.albumPics.split(',');
+          for(let i=0;i<albumPics.length;i++){
+            pics.push(albumPics[i]);
+          }
+          return pics;
         },
         set:function (newValue) {
           if (newValue == null || newValue.length === 0) {
