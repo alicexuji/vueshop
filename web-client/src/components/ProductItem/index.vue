@@ -77,6 +77,11 @@ export default {
 .pro > .pro_text {
   height: 130px;
   line-height: 25px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 10px;
 }
 
 .pro_text > p {

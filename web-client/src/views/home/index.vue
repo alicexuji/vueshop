@@ -39,7 +39,7 @@
 <script>
 import {fetchList, getHomeShopList} from '@/api/index'
 import ProductItem from '@/components/ProductItem'
-import DrawerSection from './DrawerSection/DrawerSection'
+// import DrawerSection from './DrawerSection/DrawerSection'
 
 export default {
   name: 'home',
@@ -65,7 +65,7 @@ export default {
     }
   },
   components: {
-    DrawerSection,
+    // DrawerSection,
     ProductItem
   },
   created() {

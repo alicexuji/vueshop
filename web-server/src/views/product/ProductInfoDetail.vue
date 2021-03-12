@@ -90,7 +90,8 @@ import SingleUpload from '@/components/Upload/singleUpload'
         brandOptions: [],
         listQuery: {
           pageNum: 1,
-          pageSize: 50
+          pageSize: 50,
+          display:1
         },
         rules: {
           name: [
@@ -165,7 +166,7 @@ import SingleUpload from '@/components/Upload/singleUpload'
         this.hasEditCreated=true;
       },
       getProductCateList() {
-        fetchList(this.parentId, this.listQuery).then(response => {
+        fetchList(this.listQuery).then(response => {
           this.listLoading = false;
           let list = response.data.list;
 

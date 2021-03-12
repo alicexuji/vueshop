@@ -101,7 +101,7 @@ export default {
 .header_search button.el-button.el-button--danger {
   padding: 0;
   width: 60px;
-  height: 35px;
+  height: 41px;
   font-size: 18px;
   border-radius: 0;
   outline: none;

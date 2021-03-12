@@ -8,8 +8,11 @@
       </div>
       <div class="pro_meg">
         <div class="pro_meg_hd">
-          <h1>
+          <h2>
             {{ goodsDetail.name }}
+          </h2>
+          <h1 style="color: #666666">
+            {{ goodsDetail.description }}
           </h1>
         </div>
         <div class="pro_meg_price">
@@ -24,7 +27,7 @@
           </dl>
           <dl>
             <dt>市场价</dt>
-            <dd class="nor_price">{{ "￥" + goodsDetail.sellPrice * 1.5 }}</dd>
+            <dd class="nor_price">{{ "￥" + (goodsDetail.sellPrice * 1.5).toFixed(2)}}</dd>
           </dl>
           <dl>
             <dt>本店优惠</dt>
