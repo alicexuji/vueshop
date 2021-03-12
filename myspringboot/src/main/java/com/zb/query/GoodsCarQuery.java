@@ -1,24 +1,12 @@
 package com.zb.query;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class GoodsCarQuery extends BaseQuery{
 
     private Integer id;
-
     private String username;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getUsername() {
-        return username;
-    }
 }

@@ -113,10 +113,8 @@
       },
       handleShowStatusChange(index, row) {
         let data = new URLSearchParams();
-        let ids=[];
-        ids.push(row.id)
-        data.append('ids',ids);
-        data.append('showStatus',row.showStatus);
+        data.append('id',row.id);
+        data.append('display',row.display);
         updateShowStatus(data).then(response=>{
           this.$message({
             message: '修改成功',

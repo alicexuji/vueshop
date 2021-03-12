@@ -36,11 +36,11 @@ export function getProductCate(id) {
   })
 }
 
-export function updateShowStatus(data) {
+export function updateShowStatus(params) {
   return request({
     url:'/productCategory/update/showStatus',
     method:'post',
-    data:data
+    data:params
   })
 }
 

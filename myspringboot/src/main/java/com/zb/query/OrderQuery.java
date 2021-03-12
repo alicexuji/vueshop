@@ -1,15 +1,12 @@
 package com.zb.query;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class OrderQuery extends BaseQuery {
 
     private Integer id;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
 }

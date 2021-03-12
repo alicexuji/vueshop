@@ -59,7 +59,8 @@ export default {
       listLoading: false,
       listQuery: {
         pageNum: 1,
-        pageSize: 50
+        pageSize: 50,
+        display:1
       }
     }
   },
@@ -73,6 +74,7 @@ export default {
   },
   methods: {
     getCatergoryList() {
+
       fetchList(this.listQuery).then(response => {
         this.categoryList = response.data.list;
       });
@@ -81,7 +83,12 @@ export default {
       this.$router.replace('/search/' + cate_id);
     },
     queryHomeShopList() {
-      getHomeShopList(this.listQuery).then(response => {
+      let param = {
+        pageNum: 1,
+        pageSize: 50,
+        publishStatus:1
+      }
+      getHomeShopList(param).then(response => {
 
         this.homeshoplist = response.data.list;
       });

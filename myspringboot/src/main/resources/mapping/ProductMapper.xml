@@ -42,6 +42,9 @@
       <if test="null != categoryId">
         AND category_id = #{categoryId,jdbcType=INTEGER}
       </if>
+<!--      <if test="null != publishStatus">-->
+<!--        AND publish_status = #{publishStatus,jdbcType=INTEGER}-->
+<!--      </if>-->
     </where>
   </select>
 
@@ -119,7 +122,7 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="publishStatus != null" >
-        #{publishStatus,jdbcType=TIMESTAMP},
+        #{publishStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -155,7 +158,7 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="publishStatus != null" >
-        publish_status = #{publishStatus,jdbcType=TIMESTAMP},
+        publish_status = #{publishStatus,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

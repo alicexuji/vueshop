@@ -18,6 +18,8 @@ public interface ProductService {
 
     int updateCategory(CategoryDO categoryDO);
 
+    int updateCategoryStatus(CategoryDO categoryDO);
+
     int deleteCategory(Integer id);
 
     int createProduct(ProductDO productDO);

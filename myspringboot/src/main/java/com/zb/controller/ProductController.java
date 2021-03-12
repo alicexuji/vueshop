@@ -22,11 +22,15 @@ public class ProductController {
 
     @GetMapping("/productCategory/list")
     @ResponseBody
-    public Result categoryList(
-        @RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "pageSize") Integer pageSize) {
+    public Result categoryList(@RequestBody
+        @RequestParam(value = "pageNum") Integer pageNum,
+        @RequestParam(value = "pageSize") Integer pageSize,
+        @RequestParam(value = "display", required = false) Integer display) {
 
         CategoryQuery cq = new CategoryQuery();
-//        cq.setId(parentId);
+        cq.setPageNum(pageNum);
+        cq.setPageSize(pageSize);
+        cq.setDisplay(display);
         List<CategoryDO> list = productService.queryCategoryList(cq);
 
         Result result = Result.newInstance();
@@ -73,6 +77,19 @@ public class ProductController {
     public Result deleteCategory(@PathVariable("id") Integer id) {
 
         int num = productService.deleteCategory(id);
+        Result result = Result.newInstance();
+        result.setData(num == 1);
+        return result;
+    }
+
+    @PostMapping("/productCategory/update/showStatus")
+    @ResponseBody
+    public Result updateCategoryStatus(@RequestParam(value = "id") Integer id, @RequestParam(value = "display") Integer display) {
+
+        CategoryDO categoryDO = new CategoryDO();
+        categoryDO.setId(id);
+        categoryDO.setDisplay(display);
+        int num = productService.updateCategoryStatus(categoryDO);
         Result result = Result.newInstance();
         result.setData(num == 1);
         return result;

@@ -52,6 +52,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public int updateCategoryStatus(CategoryDO categoryDO) {
+        return categoryMapper.updateByPrimaryKeySelective(categoryDO);
+    }
+
+    @Override
     public int deleteCategory(Integer id) {
         return categoryMapper.deleteByPrimaryKey(id);
     }
