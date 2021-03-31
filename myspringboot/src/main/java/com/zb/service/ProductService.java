@@ -37,4 +37,6 @@ public interface ProductService {
     List<ProductDO> productListByCategory(CategoryQuery cq);
 
     List<BrandDO> queryBrandList(BrandQuery cq);
+
+    List<ProductDO> searchProduct(ProductQuery cq);
 }

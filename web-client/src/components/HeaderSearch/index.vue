@@ -15,10 +15,13 @@
 
 <script>
 
+import {getHomeSearchList} from "@/api";
+
 export default {
   data() {
     return {
       keywords: ''
+      // searchList: []
     }
   },
 
@@ -26,11 +29,13 @@ export default {
     goShopCar() {
       this.$router.push('/shopcar');
     },
-    async postSearch() {
+     postSearch() {
       if (this.keywords) {
         let keywords = this.keywords;
-        // this.$store.dispatch('reqSearch',{keywords});
-        // this.$router.replace('/searchdetail');
+        getHomeSearchList(keywords).then(response => {
+          this.$emit('searchList', response.data.list)
+          // this.goodsDetail = response.data.list;
+        });
       }
     },
   },

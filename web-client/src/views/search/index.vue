@@ -1,9 +1,12 @@
 <template>
-  <div v-if="categoryList.length">
-    <div id="container">
-      <div class="product">
-        <div class="pro_show">
-          <ProductItem v-for="(goods) in recommendshoplist" :key="goods.id" :pro="goods"/>
+  <div>
+    <HeaderSearch v-show="$route.meta.showHeaderSearch" v-on:searchList="searchList"/>
+    <div v-if="categoryList.length">
+      <div id="container">
+        <div class="product">
+          <div class="pro_show">
+            <ProductItem v-for="(goods) in recommendshoplist" :key="goods.id" :pro="goods"/>
+          </div>
         </div>
       </div>
     </div>
@@ -13,6 +16,7 @@
 <script>
 import {fetchList, getProductListByCategory} from '@/api/index'
 import ProductItem from '@/components/ProductItem'
+import HeaderSearch from '@/components/HeaderSearch'
 
 export default {
   name: 'search',
@@ -27,7 +31,8 @@ export default {
     }
   },
   components: {
-    ProductItem
+    ProductItem,
+    HeaderSearch
   },
 
   created() {
@@ -35,6 +40,9 @@ export default {
     this.getProductListByCategory();
   },
   methods: {
+    searchList:function (searchList){
+      this.recommendshoplist = searchList;
+    },
     getCatergoryList() {
       fetchList(this.listQuery).then(response => {
         this.categoryList = response.data.list;

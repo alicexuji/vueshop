@@ -110,6 +110,19 @@ public class ProductController {
         return result;
     }
 
+    @GetMapping("/product/search/{name}")
+    @ResponseBody
+    public Result searchProduct(@PathVariable("name") String name) {
+        ProductQuery cq = new ProductQuery();
+        cq.setName(name);
+        List<ProductDO> list = productService.searchProduct(cq);
+        Result result = Result.newInstance();
+        result.setData(new PageData<>(list));
+        return result;
+    }
+
+
+
     @PostMapping("/product/list")
     @ResponseBody
     public Result productListByCategory(@RequestBody CategoryQuery query ) {

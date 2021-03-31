@@ -34,6 +34,16 @@
       </if>
     </where>
   </select>
+  <select id="searchByName" resultMap="BaseResultMap" parameterType="com.zb.query.ProductQuery" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_product
+    <where>
+      <if test="name!=null and name!=''">
+        AND name like  "%"#{name}"%"
+      </if>
+    </where>
+  </select>
   <select id="selectByCategoryQuery" resultMap="BaseResultMap" parameterType="com.zb.query.CategoryQuery" >
     select
     <include refid="Base_Column_List" />

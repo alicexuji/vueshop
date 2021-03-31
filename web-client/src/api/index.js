@@ -60,6 +60,14 @@ export function getHomeShopList(params) {
     })
 }
 
+// 请求首页的商品搜索数据
+export function getHomeSearchList(keywords) {
+    return request({
+        url: '/product/search/' + keywords,
+        method: 'get'
+    })
+}
+
 //根据分类查询商品
 export function getProductListByCategory(data) {
     return request({

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderTop v-show="$route.meta.showHeaderTop"/>
-    <HeaderSearch v-show="$route.meta.showHeaderSearch"/>
+<!--    <HeaderSearch v-show="$route.meta.showHeaderSearch"/>-->
     <router-view/>
   </div>
 </template>
@@ -13,8 +13,8 @@ import HeaderSearch from '@/components/HeaderSearch'
 export default {
   name: 'app',
   components:{
-    HeaderTop,
-    HeaderSearch
+    HeaderTop
+    // HeaderSearch
   },
 }
 </script>

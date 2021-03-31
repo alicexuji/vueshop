@@ -1,6 +1,8 @@
 <template>
   <div id="home">
+    <HeaderSearch v-show="$route.meta.showHeaderSearch" v-on:searchList="searchList"/>
     <div id="container">
+
       <el-row>
         <!-- 一级菜单 -->
         <el-col :span="4" :offset="1" class="cateList">
@@ -40,6 +42,7 @@
 import {fetchList, getHomeShopList} from '@/api/index'
 import ProductItem from '@/components/ProductItem'
 // import DrawerSection from './DrawerSection/DrawerSection'
+import HeaderSearch from '@/components/HeaderSearch'
 
 export default {
   name: 'home',
@@ -66,13 +69,17 @@ export default {
   },
   components: {
     // DrawerSection,
-    ProductItem
+    ProductItem,
+    HeaderSearch
   },
   created() {
     this.getCatergoryList();
     this.queryHomeShopList();
   },
   methods: {
+    searchList:function (searchList){
+      this.homeshoplist = searchList;
+    },
     getCatergoryList() {
 
       fetchList(this.listQuery).then(response => {

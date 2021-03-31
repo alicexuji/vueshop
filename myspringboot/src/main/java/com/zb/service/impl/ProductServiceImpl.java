@@ -109,4 +109,9 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.selectByCategoryQuery(cq);
     }
 
+    @Override
+    public List<ProductDO> searchProduct(ProductQuery cq) {
+        return productMapper.searchByName(cq);
+    }
+
 }

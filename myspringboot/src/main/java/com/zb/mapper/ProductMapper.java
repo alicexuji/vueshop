@@ -20,4 +20,6 @@ public interface ProductMapper {
 
     List<ProductDO> selectByCategoryQuery(CategoryQuery cq);
 
+    List<ProductDO> searchByName(ProductQuery cq);
+
 }

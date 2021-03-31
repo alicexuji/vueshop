@@ -9,4 +9,5 @@ public class ProductQuery extends BaseQuery {
 
     private Integer id;
     private Integer display;
+    private String name;
 }
