@@ -129,17 +129,33 @@ export default {
     // 2.是否选中所有商品
     selectedAll(isSelectedAll) {
       this.isSelectedAll = !isSelectedAll;
+      let selectedAll = this.isSelectedAll;
+      if (this.cartgoods.length > 0) {
+        this.cartgoods.forEach((goods, index) => {
+          if (selectedAll == true){
+            goods.checked = true;
+          }else {
+            goods.checked = false;
+          }
+        });
+      }
       this.getAllGoodsPrice();
-      this.hasSelectedAll();
     },
     // // 3.计算商品总价
     getAllGoodsPrice() {
       let totalPrice = 0;
+      let totalNum = 0;
       this.cartgoods.forEach((goods, index) => {
         if (goods.checked == 1) {
           totalPrice += goods.price * goods.count;
+          totalNum+=goods.count;
+        }else {
+          if (totalNum>0){
+            totalNum-=goods.count;
+          }
         }
       });
+      this.totalAmount = totalNum;
       this.totalPrice = totalPrice;
     },
     // 4.单个商品的选中与否
@@ -159,8 +175,10 @@ export default {
     hasSelectedAll() {
       let flag = true;
       let totalNum = 0
+
       if (this.cartgoods.length > 0) {
         this.cartgoods.forEach((goods, index) => {
+
           if (goods.checked == 0) {
             flag = false;
           } else {
