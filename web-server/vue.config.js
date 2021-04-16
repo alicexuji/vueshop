@@ -16,7 +16,7 @@ module.exports = {
         hotOnly: false,
         proxy: {
             '/api': {
-                target: 'http://localhost:8081', //源地址
+                target: "http://47.117.70.226:8081",//'http://localhost:8081', //源地址
                 changeOrigin: true, //改变源
                 // pathRewrite: {
                 //   '^/api': '' //路径重写

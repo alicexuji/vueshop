@@ -45,9 +45,9 @@ spring:
 #    url: jdbc:mysql://localhost:3306/zb_db?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
 #    username: root
 #    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/vueshop?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.117.70.226:3306/vueshop?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
     username: root
-    password: ayumi0594
+    password: Ayumi0594!
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat

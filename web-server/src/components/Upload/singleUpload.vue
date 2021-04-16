@@ -1,7 +1,8 @@
 <template> 
   <div>
     <el-upload
-      :action="minioUploadUrl"
+      :action="useOss?ossUploadUrl:minioUploadUrl"
+      :headers="token"
       list-type="picture"
       :multiple="false" :show-file-list="showFileList"
       :file-list="fileList"
@@ -19,13 +20,15 @@
 </template>
 <script>
   import {policy} from '@/api/oss'
-
   export default {
     name: 'singleUpload',
     props: {
       value: String
     },
     computed: {
+      token(){
+        return {Authorization: this.$store.state.user.token}
+      },
       imageUrl() {
         return this.value;
       },
@@ -62,9 +65,10 @@
           // callback:'',
         },
         dialogVisible: false,
+        dialogImageUrl:null,
         useOss:false, //使用oss->true;使用MinIO->false
-        ossUploadUrl:'http://macro-oss.oss-cn-shenzhen.aliyuncs.com',
-        minioUploadUrl:'http://localhost:8080/minio/upload',
+        ossUploadUrl:'http://47.117.70.226:8099/api/file/upload',
+        minioUploadUrl:'http://localhost:8080/api/file/upload',
       };
     },
     methods: {
@@ -76,6 +80,7 @@
       },
       handlePreview(file) {
         this.dialogVisible = true;
+        this.dialogImageUrl=file.url;
       },
       beforeUpload(file) {
         let _self = this;
@@ -93,6 +98,7 @@
             _self.dataObj.host = response.data.host;
             // _self.dataObj.callback = response.data.callback;
             resolve(true)
+
           }).catch(err => {
             console.log(err)
             reject(false)
@@ -103,9 +109,10 @@
         this.showFileList = true;
         this.fileList.pop();
         let url = this.dataObj.host + '/' + this.dataObj.dir + '/' + file.name;
+        console.log("host="+this.dataObj.host,"url="+url)
         if(!this.useOss){
           //不使用oss直接获取图片路径
-          url = res.data.url;
+          url = res;
         }
         this.fileList.push({name: file.name, url: url});
         this.emitInput(this.fileList[0].url);
